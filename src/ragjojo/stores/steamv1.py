@@ -13,7 +13,7 @@ class steam:
         return os.getenv("STEAM_ID")
     
     
-    def get_data():
+    def get_family_games() -> requests.json(): 
 
         params = {
             "access_token": steam.__api_key(), 
@@ -21,11 +21,10 @@ class steam:
             "include_own": True,
             "include_excluded": True,
             "include_free": True,
-            "include_non_game": True,
             "steamid": steam.__id()
         }
 
         resp = requests.get(steam.__url, params=params)
         return resp.json()
         
-        
+    
